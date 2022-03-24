@@ -7,7 +7,7 @@ type Theme = {
     brandcolorPrimaryDefault: string;
     textcolorPrimary: string;
     textcolorSecondary: string;
-    utlineGrayDark: string;
+    outlineGrayDark: string;
   };
 };
 
@@ -20,6 +20,6 @@ export const theme: Theme = {
     brandcolorPrimaryDefault: '#4F46BB',
     textcolorPrimary: '#302E45',
     textcolorSecondary: '#6D6C7B',
-    utlineGrayDark: '#BBB8D9',
+    outlineGrayDark: '#BBB8D9',
   },
 };

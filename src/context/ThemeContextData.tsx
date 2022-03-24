@@ -11,7 +11,7 @@ interface Theme {
     brandcolorPrimaryDefault: string;
     textcolorPrimary: string;
     textcolorSecondary: string;
-    utlineGrayDark: string;
+    outlineGrayDark: string;
   };
 }
 
