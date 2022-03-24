@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import Head from 'next/head';
 import { Container } from '../styles/home';
 
-import { FiPlus } from 'react-icons/fi';
+import { Header } from '../components/Header';
 
 export default function Home() {
   return (
@@ -11,25 +10,8 @@ export default function Home() {
         <title>Home | Algo</title>
       </Head>
       <Container>
-        <Header>
-          <h1>Empreendimentos</h1>
-          <button>
-            Adicionar
-            <FiPlus />
-          </button>
-        </Header>
+        <Header onClick={() => alert('Olá modal!')} />
       </Container>
     </>
   );
 }
-
-const Header = styled.header`
-  h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-  }
-
-  span {
-    color: blue;
-  }
-`;

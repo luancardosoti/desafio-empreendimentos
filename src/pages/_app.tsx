@@ -1,21 +1,15 @@
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "../styles/globals";
+import { CustomThemeProvider } from '../context/ThemeContextData';
+import { GlobalStyle } from '../styles/globals';
 
-const theme = {
-  colors: {
-    primary: "#fafafa",
-  },
-};
- 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
+      <CustomThemeProvider>
+        <GlobalStyle />
         <Component {...pageProps} />
-      </ThemeProvider>
+      </CustomThemeProvider>
     </>
   );
 }
- 
+
 export default MyApp;
