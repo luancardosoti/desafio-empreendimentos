@@ -7,7 +7,7 @@ import { Container } from './styles';
 
 import { FiX } from 'react-icons/fi';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { useForm, Validate } from 'react-hook-form';
 import { ChangeEvent, useEffect, useState } from 'react';
 import api from '../../services/api';
 import ButtonBranding from '../ButtonBranding';
@@ -228,7 +228,12 @@ export default function ModalEnterprise({
               type="text"
               placeholder="Número"
               name="number"
-              {...register('number', { required: true })}
+              {...register('number', {
+                required: true,
+              })}
+              onChange={(e) =>
+                setValue('number', mask(e.target.value, '9999999999999999'))
+              }
             />
             {errors.number! && (
               <div className="error">{errors.number.message}</div>
