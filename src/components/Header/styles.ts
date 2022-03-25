@@ -20,4 +20,12 @@ export const Container = styled.header`
     font-weight: 700;
     color: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
   }
+
+  @media (max-width: 700px) {
+    button {
+      display: none !important;
+    }
+
+    justify-content: center;
+  }
 `;

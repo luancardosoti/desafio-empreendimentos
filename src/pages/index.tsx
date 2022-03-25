@@ -9,6 +9,7 @@ import api from '../services/api';
 import { useEffect, useMemo, useState } from 'react';
 import ModalEnterprise from '../components/ModalEnterprise';
 import ConfirmationModal from '../components/ConfirmationModal';
+import ButtonBranding from '../components/ButtonBranding';
 
 export interface Enterprise {
   id: string;
@@ -28,9 +29,10 @@ export interface Enterprise {
 
 interface HomeProps {
   enterprises: Enterprise[];
+  tPages: number;
 }
 
-export default function Home({ enterprises }: HomeProps) {
+export default function Home({ enterprises, tPages }: HomeProps) {
   const [search, setSearch] = useState('');
   const [openConfirmationModal, setOpenConfirmationModal] = useState({
     open: false,
@@ -71,11 +73,6 @@ export default function Home({ enterprises }: HomeProps) {
 
         setEnterprises(newEnterprises);
       } else {
-        let newEnterprise = {
-          ...enterprise,
-          address_label: `${enterprise.address.street}, ${enterprise.address.number} - ${enterprise.address.city}, ${enterprise.address.state}`,
-        };
-        setEnterprises([newEnterprise, ...enterprisesList]);
       }
     }
   };
@@ -89,9 +86,7 @@ export default function Home({ enterprises }: HomeProps) {
     }
   };
 
-  useEffect(() => {
-    console.log(enterprisesList);
-  }, [enterprisesList]);
+  useEffect(() => {}, [enterprisesList]);
 
   const enterprisesListFiltered = useMemo(() => {
     const lowerSearch = search.toLocaleLowerCase();
@@ -107,6 +102,50 @@ export default function Home({ enterprises }: HomeProps) {
       }
     });
   }, [search, enterprisesList]);
+
+  // paginação;
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(tPages);
+  const [itemsPage, setItemsPage] = useState(10);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (page === 1) return;
+    getEnterprises();
+  }, [page]);
+
+  const getEnterprises = async () => {
+    setLoading(true);
+    let enterprisesResponse: Omit<Enterprise, 'address_label'>[] = [];
+
+    await api
+      .get<Omit<Enterprise, 'address_label'>[]>(
+        `/enterprises?_page=${page}&_limit=${itemsPage}`
+      )
+      .then((response) => {
+        let totalItems = response.headers['x-total-count'];
+        enterprisesResponse = response.data;
+        setTotalPage(Math.ceil(Number(totalItems) / itemsPage));
+      })
+      .catch((error) => {
+        console.log('Erro na requisição GET');
+        console.log('path: "/enterprises"');
+      });
+
+    let enterprises: Enterprise[] = enterprisesResponse.map((enterprise) => {
+      return {
+        ...enterprise,
+        address_label: `${enterprise.address.street}, ${enterprise.address.number} - ${enterprise.address.city}, ${enterprise.address.state}`,
+      };
+    });
+
+    setEnterprises([...enterprisesList, ...enterprises]);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    console.log('total: ', totalPage);
+  }, [totalPage]);
 
   return (
     <>
@@ -130,8 +169,22 @@ export default function Home({ enterprises }: HomeProps) {
         </div>
 
         <div className="list">
-          {enterprisesListFiltered.length > 0 ? (
-            enterprisesListFiltered.reverse().map((element) => (
+          {search.length > 0 ? (
+            enterprisesListFiltered.map((element) => (
+              <Card
+                key={element.id}
+                enterprise={element}
+                editEnterprise={submitOpenModal}
+                deleteEnterprise={() => {
+                  setOpenConfirmationModal({
+                    item: element,
+                    open: true,
+                  });
+                }}
+              />
+            ))
+          ) : enterprisesList.length > 0 ? (
+            enterprisesList.map((element) => (
               <Card
                 key={element.id}
                 enterprise={element}
@@ -146,6 +199,12 @@ export default function Home({ enterprises }: HomeProps) {
             ))
           ) : (
             <h3>Nenhuma empresa encontrada!</h3>
+          )}
+
+          {page !== totalPage && (
+            <ButtonBranding onClick={() => setPage(page + 1)}>
+              Carregar mais
+            </ButtonBranding>
           )}
         </div>
 
@@ -189,11 +248,13 @@ export const getServerSideProps: GetServerSideProps = async ({
   params,
 }) => {
   let enterprisesResponse: Omit<Enterprise, 'address_label'>[] = [];
+  let totalItems;
 
   await api
-    .get<Omit<Enterprise, 'address_label'>[]>('/enterprises')
+    .get<Omit<Enterprise, 'address_label'>[]>(`/enterprises?_page=1&_limit=10`)
     .then((response) => {
       enterprisesResponse = response.data;
+      totalItems = response.headers['x-total-count'];
     })
     .catch((error) => {
       console.log('Erro na requisição GET');
@@ -210,6 +271,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   return {
     props: {
       enterprises,
+      tPages: Math.ceil(Number(totalItems) / 10),
     },
   };
 };

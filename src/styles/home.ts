@@ -63,6 +63,7 @@ export const Container = styled.div`
   }
 
   .buttonAddMobile {
+    display: none;
     position: fixed;
     bottom: 2rem;
     right: 2rem;
@@ -74,5 +75,19 @@ export const Container = styled.div`
     border-radius: 55px;
     background: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
     padding: 0.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .buttonAddMobile {
+      display: block;
+    }
+
+    .search {
+      padding: 0 3rem;
+    }
+
+    .list {
+      padding: 0 3rem;
+    }
   }
 `;

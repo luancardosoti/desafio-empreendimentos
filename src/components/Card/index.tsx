@@ -22,8 +22,10 @@ export default function Card({
         <div className="title">
           <h3>{enterprise.name}</h3>
 
-          <BiPencil size={25} onClick={(e) => editEnterprise(enterprise)} />
-          <AiOutlineDelete size={25} onClick={deleteEnterprise} />
+          <div className="actions">
+            <BiPencil size={25} onClick={(e) => editEnterprise(enterprise)} />
+            <AiOutlineDelete size={25} onClick={deleteEnterprise} />
+          </div>
         </div>
         <p>{enterprise.address_label}</p>
       </div>

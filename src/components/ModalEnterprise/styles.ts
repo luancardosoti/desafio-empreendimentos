@@ -27,7 +27,7 @@ export const Container = styled.div`
       font-family: 'Inter', sans-serif;
       font-size: 1.3rem;
       font-weight: 700;
-      line-height: 1.1rem;
+      line-height: 1.5rem;
       color: ${(props) => props.theme.colors.textcolorPrimary};
 
       margin-bottom: 3rem;
@@ -42,7 +42,7 @@ export const Container = styled.div`
     form {
       display: flex;
       flex-direction: column;
-      width: 20rem;
+      min-width: 20rem;
 
       select {
         background: transparent;
@@ -95,6 +95,20 @@ export const Container = styled.div`
         font-size: 0.75rem;
         margin: 0.25rem 0;
         color: red;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    .content {
+      max-width: 22rem;
+
+      h3 {
+        text-align: center;
+      }
+
+      form {
+        min-width: 16rem;
       }
     }
   }

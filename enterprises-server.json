@@ -30,7 +30,7 @@
     },
     {
       "id": 5,
-      "name": "new",
+      "name": "new 2",
       "status": "Breve Lançamento",
       "purpose": "Comercial",
       "address": {
@@ -69,6 +69,90 @@
         "street": "Rua Professora Artemísia",
         "number": "0326"
       }
+    },
+    {
+      "name": "luan",
+      "status": "Em obras",
+      "purpose": "Comercial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "659"
+      },
+      "id": 8
+    },
+    {
+      "name": "Sirius Vila Bastos",
+      "status": "Em obras",
+      "purpose": "HOME",
+      "address": {
+        "district": "Vila Bastos",
+        "city": "Santo André",
+        "street": "Rua Doutor Messuti",
+        "state": "SP",
+        "number": "339",
+        "cep": "60000000"
+      },
+      "id": 9
+    },
+    {
+      "name": "kauan",
+      "status": "Breve Lançamento",
+      "purpose": "Residencial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "12"
+      },
+      "id": 10
+    },
+    {
+      "name": "hela",
+      "status": "Breve Lançamento",
+      "purpose": "Residencial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "1"
+      },
+      "id": 11
+    },
+    {
+      "name": "999",
+      "status": "Breve Lançamento",
+      "purpose": "Residencial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "as"
+      },
+      "id": 12
+    },
+    {
+      "name": "asdfasd",
+      "status": "Lançamento",
+      "purpose": "Residencial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "456"
+      },
+      "id": 13
     }
   ]
 }
