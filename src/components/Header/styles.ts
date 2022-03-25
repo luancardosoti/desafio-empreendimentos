@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   background: ${(props) => props.theme.colors.bgWhite};
 
   padding: 1.8rem 8rem;

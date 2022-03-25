@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   background-color: ${(props) => props.theme.colors.bgGray};
+
+  padding-top: 8rem;
+  padding-bottom: 5rem;
 
   .search {
     padding: 0 8rem;
-    margin: 2rem 0;
+    margin-bottom: 3rem;
 
     .groupInput {
       display: flex;
@@ -41,5 +44,10 @@ export const Container = styled.div`
         }
       }
     }
+  }
+
+  .list {
+    padding-left: 8.5rem;
+    padding-right: 7.5rem;
   }
 `;
