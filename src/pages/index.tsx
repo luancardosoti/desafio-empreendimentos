@@ -8,6 +8,7 @@ import { GetServerSideProps } from 'next';
 import api from '../services/api';
 import { useEffect, useState } from 'react';
 import ModalEnterprise from '../components/ModalEnterprise';
+import ConfirmationModal from '../components/ConfirmationModal';
 
 export interface Enterprise {
   id: string;
@@ -31,34 +32,44 @@ interface HomeProps {
 }
 
 export default function Home({ enterprises }: HomeProps) {
+  const [openConfirmationModal, setOpenConfirmationModal] = useState({
+    open: false,
+    item: null,
+  });
+
   const [openModal, setOpenModal] = useState(false);
+  const [enterpriseInEdition, setEnterpriseInEdition] =
+    useState<Enterprise>(null);
   const [enterprisesList, setEnterprises] = useState(enterprises);
 
-  const submitOpenModal = (enterprise?: Enterprise) => setOpenModal(true);
+  const submitOpenModal = (enterprise?: Enterprise) => {
+    setEnterpriseInEdition(enterprise);
+    setOpenModal(true);
+  };
   const submitCloseModal = (enterprise?: Enterprise) => {
     setOpenModal(false);
     console.log('Enterprise do Modal: ', enterprise);
     if (enterprise) {
-      let enterpriseExist = enterprises.find(
+      let enterpriseExist = enterprisesList.find(
         (element) => element.id === enterprise.id
       );
+      console.log('Enterprise Existe na lista?: ', enterprise);
 
       if (enterpriseExist) {
         console.log('Atualizando enterprise');
-        // atualizar
-        let newEnterprises: Enterprise[] = enterprises.map((enterprise) => {
-          if (enterpriseExist.id === enterprise.id) {
+
+        let newEnterprises: Enterprise[] = enterprisesList.map((element) => {
+          if (enterprise.id === element.id) {
             return {
-              ...enterpriseExist,
-              address_label: `${enterprise.address.street}, ${enterprise.address.number} - ${enterprise.address.district}, ${enterprise.address.city}`,
+              ...enterprise,
+              address_label: `${element.address.street}, ${element.address.number} - ${element.address.district}, ${element.address.city}`,
             };
           } else {
-            return enterprise;
+            return element;
           }
         });
 
         setEnterprises(newEnterprises);
-        console.log('Nova lista: ', newEnterprises);
       } else {
         let newEnterprise = {
           ...enterprise,
@@ -69,7 +80,14 @@ export default function Home({ enterprises }: HomeProps) {
     }
   };
 
-  const deleteEnterprise = () => alert('Deletar!');
+  const deleteEnterprise = async (id) => {
+    let response = await api.delete(`/enterprises/${id}`);
+
+    if (response.status === 200) {
+      const newList = enterprisesList.filter((item) => item.id !== id);
+      setEnterprises(newList);
+    }
+  };
 
   useEffect(() => {
     console.log(enterprisesList);
@@ -81,7 +99,7 @@ export default function Home({ enterprises }: HomeProps) {
         <title>Home | Algo</title>
       </Head>
       <Container>
-        <Header onClick={submitOpenModal} />
+        <Header openModal={submitOpenModal} />
         <div className="search">
           <label className="groupInput" htmlFor="input-search">
             <FiSearch />
@@ -96,22 +114,50 @@ export default function Home({ enterprises }: HomeProps) {
 
         <div className="list">
           {enterprisesList.length > 0 ? (
-            enterprisesList
-              .reverse()
-              .map((element) => (
-                <Card
-                  key={element.id}
-                  enterprise={element}
-                  editEnterprise={submitOpenModal}
-                  deleteEnterprise={deleteEnterprise}
-                />
-              ))
+            enterprisesList.reverse().map((element) => (
+              <Card
+                key={element.id}
+                enterprise={element}
+                editEnterprise={submitOpenModal}
+                deleteEnterprise={() => {
+                  setOpenConfirmationModal({
+                    item: element,
+                    open: true,
+                  });
+                }}
+              />
+            ))
           ) : (
-            <h1>Nenhuma empresa cadastrada!</h1>
+            <h3>Nenhuma empresa cadastrada!</h3>
           )}
         </div>
 
-        {openModal && <ModalEnterprise submitCloseModal={submitCloseModal} />}
+        {openModal && (
+          <ModalEnterprise
+            submitCloseModal={submitCloseModal}
+            enterprise={enterpriseInEdition}
+          />
+        )}
+
+        {openConfirmationModal.open && (
+          <ConfirmationModal
+            title="Excluir empreendimento?"
+            text={`Você tem certeza que deseja excluir o empreendimento: <strong>${openConfirmationModal.item.name}</strong>? esta acão é irreversível.`}
+            functionOnConfirmation={() => {
+              deleteEnterprise(openConfirmationModal.item.id);
+              setOpenConfirmationModal({
+                item: null,
+                open: false,
+              });
+            }}
+            functionNotConfirm={() => {
+              setOpenConfirmationModal({
+                item: null,
+                open: false,
+              });
+            }}
+          />
+        )}
       </Container>
     </>
   );

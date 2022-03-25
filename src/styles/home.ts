@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  min-height: 100vh;
   height: 100%;
   background-color: ${(props) => props.theme.colors.bgGray};
 
@@ -49,5 +50,15 @@ export const Container = styled.div`
   .list {
     padding-left: 8.5rem;
     padding-right: 7.5rem;
+
+    h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      font-weight: 700;
+      color: ${(props) => props.theme.colors.textcolorPrimary};
+
+      margin-right: 1rem;
+    }
   }
 `;

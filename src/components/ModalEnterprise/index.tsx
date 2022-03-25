@@ -65,6 +65,8 @@ export default function ModalEnterprise({
   enterprise,
   submitCloseModal,
 }: ModalEnterpriseProps) {
+  console.log('enterprise');
+  console.log(enterprise);
   const {
     register,
     handleSubmit,
@@ -75,32 +77,68 @@ export default function ModalEnterprise({
     clearErrors,
   } = useForm<DataForm>({
     resolver: yupResolver(schema),
+    defaultValues: {
+      name: enterprise?.name,
+      cep: enterprise?.address?.cep,
+      number: enterprise?.address?.number,
+      purpose: enterprise?.purpose,
+      status: enterprise?.status,
+    },
   });
-  const [zipCodeIsMasked, setZipCodeIsMasked] = useState(false);
-  const [address, setAddress] = useState<Address | null>(null);
+  const [zipCodeIsMasked, setZipCodeIsMasked] = useState(
+    enterprise ? true : false
+  );
+  const [address, setAddress] = useState<Address | null>(
+    enterprise ? enterprise.address : null
+  );
 
   const onSubmit = handleSubmit((data) => {
-    let newEnterprise = {
-      name: data.name,
-      status: data.status,
-      purpose: data.purpose,
-      address: {
-        ...address,
-        number: data.number,
-      },
-    };
+    if (enterprise?.id) {
+      let newEnterprise = {
+        id: enterprise.id,
+        name: data.name,
+        status: data.status,
+        purpose: data.purpose,
+        address: {
+          ...address,
+          number: data.number,
+        },
+      };
 
-    api
-      .post('/enterprises', newEnterprise)
-      .then((response) => {
-        if (response.status === 201) {
-          submitCloseModal(response.data);
-        }
-      })
-      .catch((error) => {
-        alert('Houve um erro inesperado, por favor contator desenvolvedor.');
-        submitCloseModal();
-      });
+      api
+        .put(`/enterprises/${newEnterprise.id}`, newEnterprise)
+        .then((response) => {
+          if (response.status === 200) {
+            submitCloseModal(response.data);
+          }
+        })
+        .catch((error) => {
+          alert('Houve um erro inesperado, por favor contator desenvolvedor.');
+          submitCloseModal();
+        });
+    } else {
+      let newEnterprise = {
+        name: data.name,
+        status: data.status,
+        purpose: data.purpose,
+        address: {
+          ...address,
+          number: data.number,
+        },
+      };
+
+      api
+        .post('/enterprises', newEnterprise)
+        .then((response) => {
+          if (response.status === 201) {
+            submitCloseModal(response.data);
+          }
+        })
+        .catch((error) => {
+          alert('Houve um erro inesperado, por favor contator desenvolvedor.');
+          submitCloseModal();
+        });
+    }
   });
 
   const onChangeCep = (e: ChangeEvent<HTMLInputElement>) => {
@@ -199,7 +237,9 @@ export default function ModalEnterprise({
             )}
           </div>
 
-          <button type="submit">Adicionar</button>
+          <button type="submit">
+            {enterprise ? 'Atualizar' : 'Adicionar'}
+          </button>
         </form>
       </div>
     </Container>

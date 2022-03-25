@@ -1,133 +1,7 @@
 {
   "enterprises": [
     {
-      "id": "PA01",
-      "name": "Sirius Vila Bastos",
-      "status": "Em obras",
-      "purpose": "HOME",
-      "address": {
-        "district": "Vila Bastos",
-        "city": "Santo André",
-        "street": "Rua Doutor Messuti",
-        "state": "SP",
-        "number": "339",
-        "cep": "60000000"
-      }
-    },
-    {
-      "id": "PA02",
-      "name": "Moriah Ipiranga",
-      "status": "Breve Lançamento",
-      "purpose": "HOME",
-      "address": {
-        "street": "Rua Lucinda Ferreira",
-        "number": "173",
-        "district": "Ipiranga",
-        "city": "São Paulo",
-        "state": "SP",
-        "cep": "60000000"
-      }
-    },
-    {
-      "id": "PA03",
-      "name": "Sirius Campinas",
-      "status": "Lançamento",
-      "purpose": "HOME",
-      "address": {
-        "street": "Av. Aquidabã",
-        "number": "280",
-        "district": "Zona Heteleira Aquidabã",
-        "city": "Campinas",
-        "state": "SP",
-        "cep": "60000000"
-      }
-    },
-    {
-      "id": "PA04",
-      "name": "Acapuco Loures",
-      "status": "Pronto pra morar",
-      "purpose": "HOME",
-      "address": {
-        "street": "Av. Aquidabã",
-        "number": "280",
-        "district": "Zona Heteleira Aquidabã",
-        "city": "Campinas",
-        "state": "SP",
-        "cep": "60000000"
-      }
-    },
-    {
-      "id": "PA05",
-      "name": "Sirius Vila Bastos",
-      "status": "Em obras",
-      "purpose": "HOME",
-      "address": {
-        "district": "Vila Bastos",
-        "city": "Santo André",
-        "street": "Rua Doutor Messuti",
-        "state": "SP",
-        "number": "339",
-        "cep": "60000000"
-      }
-    },
-    {
-      "id": "PA06",
-      "name": "Moriah Ipiranga",
-      "status": "Breve Lançamento",
-      "purpose": "HOME",
-      "address": {
-        "street": "Rua Lucinda Ferreira",
-        "number": "173",
-        "district": "Ipiranga",
-        "city": "São Paulo",
-        "state": "SP",
-        "cep": "60000000"
-      }
-    },
-    {
-      "id": "PA07",
-      "name": "Sirius Campinas",
-      "status": "Lançamento",
-      "purpose": "HOME",
-      "address": {
-        "street": "Av. Aquidabã",
-        "number": "280",
-        "district": "Zona Heteleira Aquidabã",
-        "city": "Campinas",
-        "state": "SP",
-        "cep": "60000000"
-      }
-    },
-    {
-      "id": "PA08",
-      "name": "Acapuco Loures",
-      "status": "Pronto pra morar",
-      "purpose": "HOME",
-      "address": {
-        "street": "Av. Aquidabã",
-        "number": "280",
-        "district": "Zona Heteleira Aquidabã",
-        "city": "Campinas",
-        "state": "SP",
-        "cep": "60000000"
-      }
-    },
-    {
-      "name": "Sirius Vila Bastos",
-      "status": "Em obras",
-      "purpose": "HOME",
-      "address": {
-        "district": "Vila Bastos",
-        "city": "Santo André",
-        "street": "Rua Doutor Messuti",
-        "state": "SP",
-        "number": "339",
-        "cep": "60000000"
-      },
-      "id": "iC3FLmA"
-    },
-    {
-      "name": "asasasa",
+      "name": "Primeiro Empreendimento",
       "status": "Breve Lançamento",
       "purpose": "Residencial",
       "address": {
@@ -138,53 +12,40 @@
         "street": "Rua Professora Artemísia",
         "number": "550"
       },
-      "id": "rZLIW6b"
+      "id": 1
     },
     {
-      "name": "Novo empreendimento",
-      "status": "Em obras",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-640",
-        "city": "Sobral",
-        "district": "Cohab I",
-        "state": "CE",
-        "street": "Rua Monsenhor José Gerardo",
-        "number": "455"
-      },
-      "id": "2UwHll4"
-    },
-    {
-      "name": "Luan Nunes Cardoso",
+      "id": 2,
+      "name": "Segundo abc",
       "status": "Lançamento",
       "purpose": "Comercial",
       "address": {
-        "cep": "62050-410",
+        "cep": "62050-400",
         "city": "Sobral",
         "district": "Sinhá Sabóia",
         "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "550"
-      },
-      "id": "GwalALz"
+        "street": "Rua Benedita Sousa Rodrigues",
+        "number": "987"
+      }
     },
     {
-      "name": "Helaine Ferreira",
+      "id": 4,
+      "name": "Atuu",
       "status": "Pronto pra morar",
-      "purpose": "Residencial",
+      "purpose": "Comercial",
       "address": {
-        "cep": "62050-600",
+        "cep": "62050-500",
         "city": "Sobral",
         "district": "Cohab I",
         "state": "CE",
-        "street": "Rua Brites de Vasconcelos",
-        "number": "456"
-      },
-      "id": "cg3ICq1"
+        "street": "Rua Manoel Torres",
+        "number": "019"
+      }
     },
     {
-      "name": "Fátima Nunes Bezerra",
-      "status": "Em obras",
+      "id": 5,
+      "name": "new",
+      "status": "Breve Lançamento",
       "purpose": "Comercial",
       "address": {
         "cep": "62500-500",
@@ -192,149 +53,8 @@
         "district": "Mourão",
         "state": "CE",
         "street": "Rua Leos de Abreu",
-        "number": "123"
-      },
-      "id": "RUkNxvi"
-    },
-    {
-      "name": "Jossé Kauan",
-      "status": "Pronto pra morar",
-      "purpose": "Comercial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
         "number": "695848"
-      },
-      "id": "msk05Mw"
-    },
-    {
-      "name": "New Procue",
-      "status": "Em obras",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-010",
-        "city": "Sobral",
-        "district": "Dom Expedito",
-        "state": "CE",
-        "street": "Rua Olinda",
-        "number": "659"
-      },
-      "id": "SAP1jv3"
-    },
-    {
-      "name": "asda",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "123"
-      },
-      "id": "9ZpDq3u"
-    },
-    {
-      "name": "New Procedure",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "654"
-      },
-      "id": "tupEZLq"
-    },
-    {
-      "name": "Novo Meucep",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "465"
-      },
-      "id": "SyKJxlY"
-    },
-    {
-      "name": "a",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "a"
-      },
-      "id": "iBOmdjK"
-    },
-    {
-      "name": "bbbbbbbbbbbbb",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "123"
-      },
-      "id": "I40gog8"
-    },
-    {
-      "name": "ccccccc",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "654"
-      },
-      "id": "Ds3B2RL"
-    },
-    {
-      "name": "dddddddddddddddd",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "659"
-      },
-      "id": "mMoqWEN"
-    },
-    {
-      "name": "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
-      "status": "Breve Lançamento",
-      "purpose": "Residencial",
-      "address": {
-        "cep": "62050-410",
-        "city": "Sobral",
-        "district": "Sinhá Sabóia",
-        "state": "CE",
-        "street": "Rua Professora Artemísia",
-        "number": "asd"
-      },
-      "id": "cnQV0FI"
+      }
     }
   ]
 }
