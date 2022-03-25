@@ -1,6 +1,7 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme as light } from '../styles/themes/light';
+import { theme as dark } from '../styles/themes/dark';
 
 interface Theme {
   name: string;
@@ -28,10 +29,10 @@ export const CustomThemeProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(light);
 
   const toggleTheme = useCallback(() => {
-    if (theme.name === 'first') {
+    if (theme.name === 'dark') {
       setTheme(light);
-    } else if (theme.name === 'second') {
-      setTheme(light);
+    } else if (theme.name === 'light') {
+      setTheme(dark);
     }
   }, [theme]);
 

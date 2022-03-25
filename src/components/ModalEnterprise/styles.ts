@@ -67,10 +67,12 @@ export const Container = styled.div`
 
       select,
       input {
+        background: transparent;
         width: 100%;
         border: none;
         outline: none;
         padding-bottom: 0.5rem;
+        color: ${(props) => props.theme.colors.textcolorPrimary};
 
         border-bottom: 1px solid
           ${(props) => props.theme.colors.outlineGrayDark};
@@ -78,6 +80,10 @@ export const Container = styled.div`
         :focus {
           border-color: ${(props) =>
             props.theme.colors.brandcolorPrimaryDefault};
+        }
+
+        option {
+          background: ${(props) => props.theme.colors.bgWhite};
         }
       }
 
@@ -88,6 +94,7 @@ export const Container = styled.div`
           font-family: 'Inter', sans-serif;
           font-size: 0.8rem;
           line-height: 1.1rem;
+          color: ${(props) => props.theme.colors.textcolorPrimary};
         }
       }
 

@@ -14,6 +14,7 @@ export const ButtonBradingContainer = styled.button`
   font-family: 'Inter';
   font-weight: 700;
   font-size: 1rem;
+  color: #fff;
 
   svg {
     margin-left: 0.5rem;

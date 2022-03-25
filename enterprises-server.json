@@ -153,6 +153,20 @@
         "number": "456"
       },
       "id": 13
+    },
+    {
+      "name": "novoononovovo",
+      "status": "Lançamento",
+      "purpose": "Comercial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "10"
+      },
+      "id": 14
     }
   ]
 }

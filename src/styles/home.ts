@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: relative;
   min-height: 100vh;
   height: 100%;
   background-color: ${(props) => props.theme.colors.bgGray};
@@ -31,6 +32,7 @@ export const Container = styled.div`
         outline: none;
         background: transparent;
 
+        color: ${(props) => props.theme.colors.textcolorPrimary};
         ::placeholder {
           color: ${(props) => props.theme.colors.textcolorPrimary};
         }
@@ -75,6 +77,30 @@ export const Container = styled.div`
     border-radius: 55px;
     background: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
     padding: 0.5rem;
+  }
+
+  .buttonSwitchTheme {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+
+    button {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 80px;
+
+      color: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      line-height: 1.1rem;
+      color: ${(props) => props.theme.colors.textcolorPrimary};
+      text-decoration: underline;
+
+      :hover {
+        color: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
+      }
+    }
   }
 
   .buttonLoadingMore {

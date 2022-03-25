@@ -60,6 +60,7 @@ export const Container = styled.header`
       font-size: 0.8rem;
       line-height: 12px;
       white-space: nowrap;
+      color: ${(props) => props.theme.colors.textcolorPrimary};
 
       + span {
         margin-left: 1rem;

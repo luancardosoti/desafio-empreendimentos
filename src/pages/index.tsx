@@ -10,6 +10,7 @@ import { useEffect, useMemo, useState } from 'react';
 import ModalEnterprise from '../components/ModalEnterprise';
 import ConfirmationModal from '../components/ConfirmationModal';
 import ButtonBranding from '../components/ButtonBranding';
+import { useTheme } from '../context/ThemeContextData';
 
 export interface Enterprise {
   id: string;
@@ -33,6 +34,8 @@ interface HomeProps {
 }
 
 export default function Home({ enterprises, tPages }: HomeProps) {
+  const { toggleTheme } = useTheme();
+
   const [search, setSearch] = useState('');
   const [openConfirmationModal, setOpenConfirmationModal] = useState({
     open: false,
@@ -240,6 +243,12 @@ export default function Home({ enterprises, tPages }: HomeProps) {
         <button onClick={() => submitOpenModal()} className="buttonAddMobile">
           <FiPlus size={30} strokeWidth={3} stroke="#fff" />
         </button>
+
+        <div className="buttonSwitchTheme">
+          <button className="buttonSwitchTheme" onClick={() => toggleTheme()}>
+            trocar tema
+          </button>
+        </div>
       </Container>
     </>
   );
