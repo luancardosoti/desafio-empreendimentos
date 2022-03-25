@@ -66,8 +66,6 @@ export default function ModalEnterprise({
   enterprise,
   submitCloseModal,
 }: ModalEnterpriseProps) {
-  console.log('enterprise');
-  console.log(enterprise);
   const {
     register,
     handleSubmit,
@@ -153,7 +151,6 @@ export default function ModalEnterprise({
         url: `https://viacep.com.br/ws/${zip_code}/json/`,
         responseType: 'json',
       }).then((response) => {
-        console.log(response.data);
         if (response.data.erro) {
           setError('cep', {
             type: 'invalid',

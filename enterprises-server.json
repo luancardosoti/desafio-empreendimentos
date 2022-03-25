@@ -167,6 +167,48 @@
         "number": "10"
       },
       "id": 14
+    },
+    {
+      "name": "abc",
+      "status": "Lançamento",
+      "purpose": "Residencial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "567"
+      },
+      "id": 15
+    },
+    {
+      "name": "dba",
+      "status": "Em obras",
+      "purpose": "Comercial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "695848"
+      },
+      "id": 16
+    },
+    {
+      "name": "test",
+      "status": "Breve Lançamento",
+      "purpose": "Comercial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "321"
+      },
+      "id": 17
     }
   ]
 }

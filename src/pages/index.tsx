@@ -45,7 +45,7 @@ export default function Home({ enterprises, tPages }: HomeProps) {
   const [openModal, setOpenModal] = useState(false);
   const [enterpriseInEdition, setEnterpriseInEdition] =
     useState<Enterprise>(null);
-  const [enterprisesList, setEnterprises] = useState(enterprises);
+  const [enterprisesList, setEnterprisesList] = useState(enterprises);
 
   const submitOpenModal = (enterprise?: Enterprise) => {
     setEnterpriseInEdition(enterprise);
@@ -53,16 +53,12 @@ export default function Home({ enterprises, tPages }: HomeProps) {
   };
   const submitCloseModal = (enterprise?: Enterprise) => {
     setOpenModal(false);
-    console.log('Enterprise do Modal: ', enterprise);
     if (enterprise) {
       let enterpriseExist = enterprisesList.find(
         (element) => element.id === enterprise.id
       );
-      console.log('Enterprise Existe na lista?: ', enterprise);
 
       if (enterpriseExist) {
-        console.log('Atualizando enterprise');
-
         let newEnterprises: Enterprise[] = enterprisesList.map((element) => {
           if (enterprise.id === element.id) {
             return {
@@ -74,8 +70,15 @@ export default function Home({ enterprises, tPages }: HomeProps) {
           }
         });
 
-        setEnterprises(newEnterprises);
+        setEnterprisesList(newEnterprises);
       } else {
+        if (page == totalPage) {
+          let newEnterprise = {
+            ...enterprise,
+            address_label: `${enterprise.address.street}, ${enterprise.address.number} - ${enterprise.address.city}, ${enterprise.address.state}`,
+          };
+          setEnterprisesList([...enterprisesList, newEnterprise]);
+        }
       }
     }
   };
@@ -85,7 +88,7 @@ export default function Home({ enterprises, tPages }: HomeProps) {
 
     if (response.status === 200) {
       const newList = enterprisesList.filter((item) => item.id !== id);
-      setEnterprises(newList);
+      setEnterprisesList(newList);
     }
   };
 
@@ -131,8 +134,8 @@ export default function Home({ enterprises, tPages }: HomeProps) {
         setTotalPage(Math.ceil(Number(totalItems) / itemsPage));
       })
       .catch((error) => {
-        console.log('Erro na requisição GET');
-        console.log('path: "/enterprises"');
+        // console.log('Erro na requisição GET');
+        // console.log('path: "/enterprises"');
       });
 
     let enterprises: Enterprise[] = enterprisesResponse.map((enterprise) => {
@@ -142,13 +145,9 @@ export default function Home({ enterprises, tPages }: HomeProps) {
       };
     });
 
-    setEnterprises([...enterprisesList, ...enterprises]);
+    setEnterprisesList([...enterprisesList, ...enterprises]);
     setLoading(false);
   };
-
-  useEffect(() => {
-    console.log('total: ', totalPage);
-  }, [totalPage]);
 
   return (
     <>
@@ -268,8 +267,8 @@ export const getServerSideProps: GetServerSideProps = async ({
       totalItems = response.headers['x-total-count'];
     })
     .catch((error) => {
-      console.log('Erro na requisição GET');
-      console.log('path: "/enterprises"');
+      // console.log('Erro na requisição GET');
+      // console.log('path: "/enterprises"');
     });
 
   let enterprises: Enterprise[] = enterprisesResponse.map((enterprise) => {
