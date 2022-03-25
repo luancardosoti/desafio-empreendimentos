@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Container } from '../styles/home';
 
 import { Header } from '../components/Header';
-import { FiSearch } from 'react-icons/fi';
+import { FiPlus, FiSearch } from 'react-icons/fi';
 import Card from '../components/Card';
 import { GetServerSideProps } from 'next';
 import api from '../services/api';
@@ -175,6 +175,10 @@ export default function Home({ enterprises }: HomeProps) {
             }}
           />
         )}
+
+        <button onClick={() => submitOpenModal()} className="buttonAddMobile">
+          <FiPlus size={30} strokeWidth={3} stroke="#fff" />
+        </button>
       </Container>
     </>
   );

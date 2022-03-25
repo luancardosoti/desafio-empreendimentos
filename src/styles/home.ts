@@ -61,4 +61,18 @@ export const Container = styled.div`
       margin-right: 1rem;
     }
   }
+
+  .buttonAddMobile {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 55px;
+    background: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
+    padding: 0.5rem;
+  }
 `;
