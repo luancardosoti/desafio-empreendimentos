@@ -77,6 +77,12 @@ export const Container = styled.div`
     padding: 0.5rem;
   }
 
+  .buttonLoadingMore {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+  }
+
   @media (max-width: 700px) {
     .buttonAddMobile {
       display: block;

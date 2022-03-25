@@ -202,9 +202,11 @@ export default function Home({ enterprises, tPages }: HomeProps) {
           )}
 
           {page !== totalPage && (
-            <ButtonBranding onClick={() => setPage(page + 1)}>
-              Carregar mais
-            </ButtonBranding>
+            <div className="buttonLoadingMore">
+              <ButtonBranding onClick={() => setPage(page + 1)}>
+                Carregar mais
+              </ButtonBranding>
+            </div>
           )}
         </div>
 
