@@ -20,7 +20,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 4rem 2.5rem 4rem;
     border-radius: 0.75rem;
 
     h3 {
@@ -95,22 +95,6 @@ export const Container = styled.div`
         font-size: 0.75rem;
         margin: 0.25rem 0;
         color: red;
-      }
-
-      button {
-        width: 80%;
-        padding: 0.75rem 0;
-        margin: 2rem auto 0.5rem auto;
-
-        border-radius: 1.75rem;
-        border: none;
-        background: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
-        color: ${(props) => props.theme.colors.bgWhite};
-
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        line-height: 1rem;
       }
     }
   }

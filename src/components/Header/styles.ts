@@ -20,24 +20,4 @@ export const Container = styled.header`
     font-weight: 700;
     color: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
   }
-
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: ${(props) => props.theme.colors.brandcolorPrimaryDefault};
-    color: ${(props) => props.theme.colors.bgWhite};
-    border-radius: 2rem;
-    padding: 0.5rem 2rem;
-    border: none;
-
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 1rem;
-
-    svg {
-      margin-left: 0.5rem;
-    }
-  }
 `;

@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { ChangeEvent, useEffect, useState } from 'react';
 import api from '../../services/api';
+import ButtonBranding from '../ButtonBranding';
 
 interface ModalEnterpriseProps {
   submitCloseModal: (enterprise?: Enterprise) => void;
@@ -237,9 +238,9 @@ export default function ModalEnterprise({
             )}
           </div>
 
-          <button type="submit">
+          <ButtonBranding type="submit">
             {enterprise ? 'Atualizar' : 'Adicionar'}
-          </button>
+          </ButtonBranding>
         </form>
       </div>
     </Container>

@@ -29,20 +29,6 @@
       }
     },
     {
-      "id": 4,
-      "name": "Atuu",
-      "status": "Pronto pra morar",
-      "purpose": "Comercial",
-      "address": {
-        "cep": "62050-500",
-        "city": "Sobral",
-        "district": "Cohab I",
-        "state": "CE",
-        "street": "Rua Manoel Torres",
-        "number": "019"
-      }
-    },
-    {
       "id": 5,
       "name": "new",
       "status": "Breve Lançamento",
@@ -54,6 +40,34 @@
         "state": "CE",
         "street": "Rua Leos de Abreu",
         "number": "695848"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Novo atualizado",
+      "status": "Pronto pra morar",
+      "purpose": "Comercial",
+      "address": {
+        "cep": "68907-020",
+        "city": "Macapá",
+        "district": "Renascer",
+        "state": "AP",
+        "street": "Alameda Itália",
+        "number": "100"
+      }
+    },
+    {
+      "id": 7,
+      "name": "novo empre",
+      "status": "Breve Lançamento",
+      "purpose": "Residencial",
+      "address": {
+        "cep": "62050-410",
+        "city": "Sobral",
+        "district": "Sinhá Sabóia",
+        "state": "CE",
+        "street": "Rua Professora Artemísia",
+        "number": "0326"
       }
     }
   ]
